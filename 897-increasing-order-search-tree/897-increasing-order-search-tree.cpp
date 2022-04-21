@@ -12,10 +12,12 @@
 class Solution {
 public:
     TreeNode* increasingBST(TreeNode* root) {
+        rootnode = new TreeNode();
+        currnode = rootnode;
         inorder(root);
         // pointer = rootnode;
         
-        return rootnode;
+        return rootnode -> right;
     }
     
     void inorder(TreeNode* root) {
@@ -23,23 +25,14 @@ public:
         
         inorder(root -> left);
         
-        if(rootnode == NULL) 
-        {
-            rootnode = new TreeNode(root -> val);
-            pointer =  new TreeNode();
-            pointer = rootnode;
-        }
-        else
-        {
-            TreeNode* node = new TreeNode(root -> val);
-            pointer -> right = node;
-            pointer = pointer -> right;
-        }
+        root -> left = NULL;
+        currnode -> right = root;
+        currnode = root;
         
         inorder(root -> right);
     }
     
 private:
     TreeNode* rootnode = NULL;
-    TreeNode * pointer = NULL;
+    TreeNode * currnode = NULL;
 };
