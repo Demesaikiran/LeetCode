@@ -2,37 +2,15 @@ class Solution {
 public:
     int maxDistance(vector<int>& colors) {
         int colorsLen = colors.size();
-        int start = 0;
-        int end = colorsLen - 1;
+                
         int maxDiff = -1;
         
-        
-        while(start < end)
-        {
-            if(colors[start] == colors[end])
-                end --;
-            
-            else
+        for(int i = 0; i < colorsLen; i++)
+            for(int j = 1; j < colorsLen; j++)
             {
-                maxDiff = max(maxDiff, abs(end - start));
-                start ++;
+                if(colors[i] != colors [j])
+                    if(abs(i - j) > maxDiff) maxDiff = abs(i - j);
             }
-        }
-        
-        start = 0;
-        end = colorsLen - 1;
-        
-        while(start < end)
-        {
-            if(colors[start] == colors[end])
-                start++;
-            
-            else
-            {
-                maxDiff = max(maxDiff, abs(end - start));
-                end --;
-            }
-        }
         
         return maxDiff;
     }
