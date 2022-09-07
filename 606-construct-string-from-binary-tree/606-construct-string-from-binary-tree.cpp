@@ -9,39 +9,22 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
-private:
-    string result= "";
-    
+class Solution {    
 public:
-    
-    void preorder(TreeNode* root)
-    {
-        if(root == NULL)
-            return;
-        
-        result += ("("+to_string(root -> val));
-        
-        if(root -> left == NULL)
-            if(root -> right == NULL)
-            {
-                result += ")";
-                    return;
-            }
-            else
-                result += "()";
-        else
-            tree2str(root -> left);
-        
-        tree2str(root -> right);
-        result += ")";
-    }
     
     string tree2str(TreeNode* root) {
         
-        preorder(root);
+        string result = to_string(root -> val);
         
-        return result.substr(1, result.size() - 2);
-
+        if(root -> left)
+            result += "(" + tree2str(root -> left) + ")";
+        if(root -> right)
+        {
+            if(! root -> left)
+                result += "()";
+            result += "(" + tree2str(root -> right) + ")";
+        }
+        
+        return result;
     }
 };
