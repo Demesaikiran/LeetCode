@@ -12,21 +12,15 @@ public:
         int bar_size = barcodes.size();
         vector<int> result(bar_size);
 
-        
         for(auto i: barcodes)
             frequency[i]++;
         
-        
         vector<pair<int, int>> sortedValues;
-        
         for(auto i: frequency)
             sortedValues.push_back({i.first, i.second});
         
         sort(sortedValues.begin(), sortedValues.end(), sortByVal);
-        
-        vector<pair<int, int>>:: iterator it;
-        
-        bool oddFlag = false;
+                
         int index = 0;
         
         for(auto traverse: sortedValues)
