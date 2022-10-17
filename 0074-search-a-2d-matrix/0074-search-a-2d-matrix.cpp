@@ -4,9 +4,7 @@ public:
         int rownum = -1;
         int m = matrix.size();
         int n = matrix[0].size();
-        
-        cout << m << " " << n << endl;
-        
+                
         for(int i = 0; i < m; i++)
         {
             if(target <= matrix[i][n - 1])
@@ -16,7 +14,6 @@ public:
             }
         }
         
-        cout << rownum << endl;
         if(rownum == -1)
             return false;
         
