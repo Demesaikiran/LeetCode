@@ -7,12 +7,15 @@ public:
         
         for(int num: nums)
         {
-            if(count == 0) element = num;
+            if(count){
+                count += num == element ? 1 : -1;
+            }
             
-            if(num == element)
-                count ++;
             else
-                count --;
+            {
+                element = num;
+                count = 1;
+            }
         }
         
         return element;
