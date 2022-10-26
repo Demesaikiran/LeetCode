@@ -29,7 +29,7 @@ class Solution{
             if(hashmap[A[i - k]] ==1)
                 count--;
                 
-            hashmap[A[i - k]] -= 1;
+            hashmap[A[i - k]]--;
             
             if(hashmap[A[i]] == 0)
                 count++;
