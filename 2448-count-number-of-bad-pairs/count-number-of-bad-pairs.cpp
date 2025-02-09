@@ -4,33 +4,30 @@ public:
 
     ll nc2(ll n)
     {
-        return n < 2 ? 0 : (n * (n - 1) / 2);
+        return (n * (n + 1) / 2);
     }
 
     long long countBadPairs(vector<int>& nums) {
-        unordered_map<int, ll> good_pairs;
-        ll n = nums.size();
-        ll result = nc2(n);
-
-        for(int i = 0; i < n; i ++)
+        ll n =nums.size();
+        ll temp1 = 0, temp2 = 0;
+    
+        for(int i = 0; i < n; i++)
         {
-            if(good_pairs.find((nums[i] - i)) != good_pairs.end())
-            {
-                good_pairs[nums[i] - i]++;
-            }
-            else
-                good_pairs[nums[i] - i] = 1;
+            nums[i] = i - nums[i];
         }
 
-        for(auto it : good_pairs)
+        sort(nums.begin(), nums.end());
+
+        for(int i = 0; i < n - 1; i++)
         {
-            if(it.second < 2) continue;
+            if(nums[i] == nums[i + 1]) temp2++;
             else
             {
-                result -= nc2(it.second);
+                temp1 = temp1 + (nc2(temp2));
+                temp2 = 0;
             }
         }
 
-        return result;
+        return (n * (n - 1)) / 2 - temp1 - nc2(temp2);
     }
 };
