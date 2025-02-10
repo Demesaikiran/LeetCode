@@ -7,7 +7,7 @@ public:
         int n = s.size();
         for(int i = 0; i < n; i++)
         {
-            s[i] >= '0' and s[i] <= '9' ? temp.pop() : temp.push(s[i]);
+            isdigit(s[i]) ? temp.pop() : temp.push(s[i]);
         }
 
         while(!temp.empty())
