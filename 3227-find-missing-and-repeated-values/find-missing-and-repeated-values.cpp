@@ -24,8 +24,7 @@ public:
 
             }
         }
-        cout << given_sum << endl;
-        cout << n2_sum << endl << duplicate << endl;
+
         int missing = n2_sum - given_sum + duplicate;
 
         return {duplicate, missing};
