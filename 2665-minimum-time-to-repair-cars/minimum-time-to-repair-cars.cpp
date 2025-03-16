@@ -1,7 +1,7 @@
 class Solution {
 public:
     #define ll long long
-    bool checkTime(vector<int> ranks, ll mid,int cars)
+    bool checkTime(vector<int>& ranks, ll& mid,int& cars)
     {
         ll count = 0;
 
@@ -19,7 +19,7 @@ public:
         ll n = ranks.size();
         ll result, left = 1;
         ll right = (ll)*min_element(ranks.begin(),ranks.end()) * cars * cars;
-        
+
         sort(ranks.begin(), ranks.end());
 
         while(left <= right)
