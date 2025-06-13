@@ -12,7 +12,7 @@ public:
         return cnt;
     }
 
-    int minimizeMax(vector<int>& nums, int p) {
+    int minimizeMax(vector<int> nums, int p) {
         sort(nums.begin(), nums.end());
         int n = nums.size();
         int left = 0, right = nums[n - 1] - nums[0];
