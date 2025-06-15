@@ -5,9 +5,12 @@ public:
         set<char> uniqueDigits(numStr.begin(), numStr.end());
         int maxVal = num, minVal = num;
 
-        for (char digit : uniqueDigits) {
-            for (char newDigit = '0'; newDigit <= '9'; ++newDigit) {
-                if (numStr[0] == digit && newDigit == '0') continue;
+        for (char digit : uniqueDigits) 
+        {
+            for (char newDigit = '0'; newDigit <= '9'; ++newDigit) 
+            {
+                if (numStr[0] == digit && newDigit == '0') 
+                    continue;
                 string newNumStr = numStr;
                 replace(newNumStr.begin(), newNumStr.end(), digit, newDigit);
                 int newNum = stoi(newNumStr);
@@ -15,7 +18,6 @@ public:
                 minVal = min(minVal, newNum);
             }
         }
-
         return maxVal - minVal;
     }
 };
