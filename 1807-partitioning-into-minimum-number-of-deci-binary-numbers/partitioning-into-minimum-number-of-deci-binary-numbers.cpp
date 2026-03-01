@@ -5,10 +5,7 @@ public:
 
         for(char ch : n)
         {
-            int num = ch - 48;
-            if(num > result) result = num;
-            else
-                continue;
+            result = ch - '0' > result ? ch -'0' : result; 
         }
 
         return result;
